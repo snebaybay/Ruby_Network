@@ -36,7 +36,13 @@ class UsersController < ApplicationController
     @users = User.all 
     @current_user = User.find(session[:user_id])
     @friendships = @current_user.friends
-    end
+    @pending = Friendship.all 
+
+    for pend in @pending 
+    	puts"*"*100
+    	puts pend.friend_id
+    end 
+	end
 
   def show
   @user= User.find(params[:user_id])
