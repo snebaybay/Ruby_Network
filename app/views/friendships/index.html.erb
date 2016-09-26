@@ -1,0 +1,42 @@
+<div class='container'>
+	<div class='header'> 
+		<h2> Welcome, <%= @user.name %>! </h2>
+		<p> <a href="/users/show"> All Users </a></p>
+		<form action="/users/logout" method="POST">
+			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+	 		<input type='submit' value='Logout'> 
+	 		</form>
+	</div>
+	
+	<div class='body'>
+		<h4> Here is your profile description: </h4>
+			<h5> <%= @user.description %> </h5>
+
+		<h4> Your Professional Network: </h4>
+		<% for user in @user_all %>
+			<% for pending in @accept%>
+			 <% if user.id == pending.user_id %>
+			 	<p><%= user.name %>
+			 	<a href="/friendships/destroy/<%= pending.user_id%>">Remove</a></p>
+			 	<%end%>
+			 <%end%>
+		<%end%> 
+
+		<h4> Invitations: </h4>
+			<h6> The following people have asked you to be their network: </h6>
+		<% for user in @user_all %>
+			<% for pending in @invites%>
+			<% puts pending.inspect %>
+			 <% if user.id == pending.user_id %>
+			 	<p><%= user.name %></p>
+			 	<a href="/friendships/accept/<%= pending.id%>/<%= pending.user_id%> ">Accept</a>
+			 	<a href="/friendships/destroy/<%= pending.user_id%>">Ignore</a></td>
+			 	<%end%>
+			 <%end%>
+		<%end%> 
+
+	</div>
+
+</div>
+
+

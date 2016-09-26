@@ -1,0 +1,7 @@
+<p> <a href="/professional_profile"> My Profile </a></p>
+		<form action="/users/logout" method="POST">
+			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+	 		<input type='submit' value='Logout'> 
+	 		</form>
+<h2> <%= @user.name %> </h2>
+<h4> <%= @user.description %> </h4>
