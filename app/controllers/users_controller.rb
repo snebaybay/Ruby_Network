@@ -35,13 +35,11 @@ class UsersController < ApplicationController
    def show_all
     @users = User.all 
     @current_user = User.find(session[:user_id])
-    @friendship = Friendship.all 
-  end
+    @friendships = @current_user.friends
+    end
 
   def show
   @user= User.find(params[:user_id])
-  @network = User.where("id NOT IN(?)", User.third.friends.select("id"))
- 
   end 
 
   def logout

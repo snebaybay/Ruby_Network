@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get '/professional_profile' => 'friendships#index'
 
-  get 'friendships/edit'
+  get '/friendships/ignore/:id' => 'friendships#ignore'
 
   get '/friendships/destroy/:user_id' => 'friendships#destroy'
 

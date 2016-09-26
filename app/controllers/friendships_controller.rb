@@ -28,5 +28,11 @@ class FriendshipsController < ApplicationController
    redirect_to '/professional_profile'
   end
 
+  def ignore
+    Friendship.find_by(id: params[:id]).destroy 
+    redirect_to '/professional_profile'
+  end 
+
+
 end
 

@@ -26,11 +26,10 @@
 			<h6> The following people have asked you to be their network: </h6>
 		<% for user in @user_all %>
 			<% for pending in @invites%>
-			<% puts pending.inspect %>
 			 <% if user.id == pending.user_id %>
 			 	<p><%= user.name %></p>
 			 	<a href="/friendships/accept/<%= pending.id%>/<%= pending.user_id%> ">Accept</a>
-			 	<a href="/friendships/destroy/<%= pending.user_id%>">Ignore</a></td>
+			 	<a href="/friendships/ignore/<%= pending.id%>">Ignore</a></td>
 			 	<%end%>
 			 <%end%>
 		<%end%> 
