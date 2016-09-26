@@ -38,10 +38,17 @@ class UsersController < ApplicationController
     @friendships = @current_user.friends
     @pending = Friendship.all 
 
+    #comparing the user_id in the friends table to current_user.id 
+   	@all_friends = []
+
     for pend in @pending 
-    	puts"*"*100
-    	puts pend.friend_id
+    	@all_friends.push(pend.user_id)
     end 
+
+    puts"*"*100
+    puts @all_friends
+    puts"*"*100
+    puts @all_friends.length 
 	end
 
   def show
