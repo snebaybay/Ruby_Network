@@ -36,19 +36,18 @@ class UsersController < ApplicationController
     @users = User.all 
     @current_user = User.find(session[:user_id])
     @friendships = @current_user.friends
-    @pending = Friendship.all 
+    @pending = Friendship.where(status: "Pending", friend_id:session[:user_id])
 
     #comparing the user_id in the friends table to current_user.id 
-   	@all_friends = []
-
+   	
+    @all_friends = []
     for pend in @pending 
     	@all_friends.push(pend.user_id)
     end 
 
     puts"*"*100
-    puts @all_friends
+    puts @all_friends.class
     puts"*"*100
-    puts @all_friends.length 
 	end
 
   def show

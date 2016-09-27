@@ -9,7 +9,7 @@
 		<tr>
 		
 		<% @users.each do |user| %>
-		<% if @current_user.id != user.id and !@friendships.include? (user) and user.id != @all_friends %>
+		<% if @current_user.id != user.id and !@friendships.include? (user) and ! @all_friends.include? (user.id) %>
 		<td> <a href="/users/<%= user.id%>"> <%= user.name %> </a> </td>
 		<td> <a href="/friendships/create/<%= user.id%>">Connect</a></td>
 		</tr>
