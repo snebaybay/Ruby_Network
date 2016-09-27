@@ -1,3 +1,30 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+*{ font-family: 'Dosis', sans-serif;
+	background-color: lightblue;
+	color: lightyellow;
+	word-spacing: .5px;
+
+}
+
+.login {
+	border: 1px solid lightyellow;
+	border-radius: 5px;
+	margin-left: 50px;
+	height: 300px;
+	width: 200px;
+	text-align: center;
+}
+
+.login table {
+	margin-left: 30px;
+}
+#button {
+ background-color: lightyellow;}
+
+ input {
+ 	border: 1px solid lightyellow;
+ 	color: black;
+ 	border-radius: 5px;
+ }
+
+
+	

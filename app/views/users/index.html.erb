@@ -9,27 +9,41 @@
 <p><%= flash[:alert] %></p>
 <% end %>
 
+<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
 
 
-<div style="display:inline-block">
+<div class="login" style="display: inline-block;">
 	<h1>Register</h1>
-	<form action="/users/register" method="POST">
+	<table><form action="/users/register" method="POST">
 		<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-		<p>Name:<input type="text" name="name"></p>
-		<p>Email:<input type="text" name="email"></p>
-		<p>Password:<input type="password" name="password"></p>
-		<p>Confirm Password:<input type="password" name="password_confirmation"></p>
-		<p>Description:<input type="text" name="description"></p>
-		<input type="submit" value="Register">
+		<tr>
+			<td><input placeholder="Name" type="text" name="name"></td></tr>
+		<tr>
+			<td><input placeholder="Email" type="text" name="email"></td></tr>
+		<tr>
+			<td><input placeholder="Password" type="password" name="password"></td></tr>
+		<tr>
+		<td><input placeholder="Confirm Password" type="password" name="password_confirmation"></td></tr>
+		<tr><td><input placeholder="Description" type="text" name="description"></td></tr>
+		</table>
+		<p><input id="button" type="submit" value="Register"></p>
 	</form>
+	
 </div>
-<div style="display:inline-block; vertical-align:top">
+<div class="login" style="display: inline-block; vertical-align: top;">
 	<h1>Login</h1>
 	<form action="/users/login" method="POST">
 		<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-		<p>Email:<input type="text" name="email"></p>
-		<p>Password:<input type="password" name="password"></p>
-		<input type="submit" value="Login">
+		<table> 
+		<tr>
+			<td> <input placeholder="Email" type="text" name="email"></td>
+		</tr>
+		<tr>
+		<td><input placeholder="Password" type="password" name="password"></td>
+		</tr>
+		</table>
+		<p><input id="button" type="submit" value="Login"></p>
 	</form>
 </div>
+
 

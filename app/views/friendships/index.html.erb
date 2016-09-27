@@ -16,7 +16,7 @@
 		<% for user in @user_all %>
 			<% for pending in @accept%>
 			 <% if user.id == pending.user_id %>
-			 	<p><%= user.name %>
+			 	<p><a href="/users/<%= user.id%>" ><%= user.name %></a></p>
 			 	<a href="/friendships/destroy/<%= pending.user_id%>">Remove</a></p>
 			 	<%end%>
 			 <%end%>
@@ -27,7 +27,7 @@
 		<% for user in @user_all %>
 			<% for pending in @invites%>
 			 <% if user.id == pending.user_id %>
-			 	<p><%= user.name %></p>
+			 	<p> <a href="/users/<%= user.id%>"> <%= user.name %></a></p>
 			 	<a href="/friendships/accept/<%= pending.id%>/<%= pending.user_id%> ">Accept</a>
 			 	<a href="/friendships/ignore/<%= pending.id%>">Ignore</a></td>
 			 	<%end%>
