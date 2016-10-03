@@ -3,14 +3,12 @@ class UsersController < ApplicationController
   end
 
   def register
-  	if !session[:user_id]
 	  	@user = User.create(name:params[:name],email:params[:email],password:params[:password],password_confirmation:params[:password_confirmation], description:params[:description])
 	  	if @user.valid?
 	  		session[:user_id] = @user.id
 	  		redirect_to '/professional_profile'
 	  	else
 	  		redirect_to '/users', :notice => @user.errors.full_messages
-	  	end
 	  end 
   end
 
